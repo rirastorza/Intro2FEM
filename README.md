@@ -35,5 +35,3 @@ Este curso es una recopilación de diferentes fuentes reseñadas a continuación
 
 1. Mats G. Larson, Fredrik Bengzon, [The Finite Element Method: Theory, Implementation, and Applications](https://www.springer.com/gp/book/9783642332869). Este libro es la referencia central del curso. Muy recomendable leerlo de principio a fin.
 2. Hans Petter Langtangen, Anders Logg, [Tutorial de FEniCS](https://fenicsproject.org/tutorial/). Este es el software que utilizaremos a lo largo del curso y en el que se basarán la mayoría de los ejemplos del curso. 
-
-# Intro2FEM
