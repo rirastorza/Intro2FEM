@@ -1,96 +1,86 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Ejemplo 3: Ecuacion de Poisson 1D, hecho a mano 
+Ejemplo: Ecuacion de Poisson 1D pero resuelto con FEniCS 
 
-Deformacion de una barra sometida a tensión axial con resortes en las puntas
-
-  -d2u/dx2 = 1   0 < x < 1
-    au'(0) = k0(u(0)-g0) y -au'(1) = k1(u(1)-g1) en los bordes.
+  -Akd2T/dx2 = f   0 < x < L
+    T'(0) = h (T-Tinf) + qinf y T'(L) = h (T-Tinf) + qinf
     
+Ejemplo 3.1 de libro: 
+https://books.google.com.ar/books/about/Principles_of_Heat_Transfer.html?id=1hVSQBNvr74C&redir_esc=y
 """
 
 from __future__ import print_function
-import numpy as np #importo numpy y lo denomino np
+from fenics import *
+# Defino la malla
+nx = 10 #numero de intervalos
 
-#Parámetros:
-r = 1.e-2 #radio del cable (m)
-Area = np.pi*(r**2.) #sección transversal (m^2)
-I = 10. #corriente constante (A)
-rho = 1.72e-8 #resistividad del cobre (ohm m)
-k = 80. #conductividad térmica del cobre (W/m K)
-a = Area*k
-f = rho*I**2./Area
+l0 = 0.01 #Longitud 1 cm
+A = 0.01*0.1 #sección 1cmx10cm
+k = 64.0 # conductividad térmica del acero en [W/mK]
+qg = 1.0e6 #En [W/m] 
+h = 42.0 #coeficiente de convección en [W/m2K]
+Tinf = 353.15 #temperatura en en kelvin
 
-print(a,f)
+minx, maxx= 0.0, l0 
+mesh = IntervalMesh(nx, minx, maxx)#malla en 1D 
+V0 = FunctionSpace(mesh, 'CG',1)#Continuous Lagrange elements
 
-#Parámetros de condiciones de borde
-k0 = 0.0#coeficiente de transferencia térmica (W/m^2 K)
-g0 = 333.15 # 60 °C en Kelvin
-k1 = 1e6 #infinito, para simular una condición Dirichlet T = g1 = 20 °C
-g1 = 293.15 # 20 °C en Kelvin
-#q0 y q1 = 0
+class borde_Ar(SubDomain):
+    def inside(self, x, on_boundary):
+        tol = 1E-14
+        return on_boundary and near(x[0], 0.0, tol)
 
-#Puntos de x0 a xnx
-nx = 85 #numero de intervalos
-nodos = nx+1 #cantidad de nodos
+class borde_Ab(SubDomain):
+    def inside(self, x, on_boundary):
+        tol = 1E-14
+        l0 = 0.01
+        return on_boundary and near(x[0], l0, tol)
 
-uh = np.zeros((nx+1,1))
-h = 1./(nx)
-Apre = (2./h)*np.eye(nx+1) #(n-1)*(n-1)
+#Función de la malla con parámetro que indica la topología
+marcador_borde = MeshFunction("size_t", mesh, mesh.topology().dim()-1, 0)
+#Marcadores en el borde de abajo
+bc_ab = borde_Ab()
+bc_ar = borde_Ar()
+bc_ab.mark(marcador_borde, 20)
+bc_ar.mark(marcador_borde, 30)
 
-rows, cols = np.indices((nx+1,nx+1))
-row_vals = np.diag(rows, k=-1)
-col_vals = np.diag(cols, k=-1)
-z1 = np.zeros((nx+1,nx+1))
-z1[row_vals, col_vals]=-1./h
+#Defino el subdominio de los bordes
+ds = Measure('ds', domain=mesh, subdomain_data=marcador_borde)
 
-row_vals = np.diag(rows, k=1)
-col_vals = np.diag(cols, k=1)
-z2 = np.zeros((nx+1,nx+1))
-z2[row_vals, col_vals]=-1./h
+#bc = [bc_ar,bc_ab]
 
-A = a*(Apre+z1+z2) #Matriz de rigidez
+# Comienzo la formulacion variacional
+T = TrialFunction(V0)
+v = TestFunction(V0)
+f = Constant(qg)
 
-A[0,0] = a/h 
-A[nx,nx] = a/h
+#Definicion abstracta 
+a = k*dot(grad(T), grad(v))*dx+h*T*v*ds(20)+h*T*v*ds(30)
+L = f*v*dx+h*Tinf*v*ds(20)+h*Tinf*v*ds(30)
 
-#Ahora lo nuevo
-R = np.zeros((nx+1,nx+1))
-R[0,0] = k0
-R[nx,nx] = k1
-
-
-b = f*h*np.ones((nx+1,1))#vector
-b[0] = f*h/2.
-b[nx] = f*h/2.
-
-#Parte nueva
-r = np.zeros((nx+1,1))#vector
-r[0] = k0*g0
-r[nx] = k1*g1
-
-#Calculo la solución
-uh = np.linalg.solve(A+R, b+r)
+# Resuelvo
+T = Function(V0)
+solve(a == L, T)
 
 import matplotlib.pyplot as plt
+
+#Extraigo los datos de la solucion u.
+Th = T.compute_vertex_values(mesh) 
+
+print('Cantidad de celdas:',nx)
+print('Cantidad de vertices:',len(Th))
 
 fig, axs = plt.subplots(1,1)
 
 import numpy as np
-#psinew =np.append([0],np.reshape(psi, nx-1))
-#uh =np.append(psinew,[0])
-#print(psinew)
 
-xu = np.linspace(0, 1.0, nx+1,endpoint = True)
+xu = np.linspace(0.0, 0.01, len(Th),endpoint = True)
+axs.plot(xu,Th-273.15,'ro',markersize=5)
+axs.set_xlabel('x (m)')
+axs.set_ylabel('T (°C)')
+plt.title('Temperatura T(x)')
 
-
-axs.plot(xu,uh,'ro',markersize=5)
-
-print(A)
-print(R)
-print(b)
-print(r)
 
 plt.show()
 
