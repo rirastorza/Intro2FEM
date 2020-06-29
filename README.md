@@ -23,7 +23,7 @@ La idea es presentar diferentes conceptos utilizando [Jupyter notebooks](https:/
     a. [FEniCS en 1D](https://github.com/rirastorza/Intro2FEM/blob/master/Elementos_finitos_en_1D/fem1D_introFEniCS.ipynb)<br>
     b. [Ejemplo mecánico](https://github.com/rirastorza/Intro2FEM/blob/master/Elementos_finitos_en_1D/mecanica1D.ipynb)<br> 
     c. [Elementos Finitos en 1D con condición de contorno Robin](https://github.com/rirastorza/Intro2FEM/blob/master/Elementos_finitos_en_1D/fem1D_Robin.ipynb)<br>
-    d. Ejemplo térmico<br>
+    d. [Ejemplo térmico](https://github.com/rirastorza/Intro2FEM/blob/master/Elementos_finitos_en_1D/termico1D.ipynb)<br>
 3. Elementos Finitos en 2D para problemas estacionarios, estáticos
 4. Problemas dependientes del tiempo
 5. Resolución iterativa
