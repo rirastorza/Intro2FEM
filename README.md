@@ -25,7 +25,8 @@ La idea es presentar diferentes conceptos utilizando [Jupyter notebooks](https:/
     c. [Elementos Finitos en 1D con condición de contorno Robin](https://github.com/rirastorza/Intro2FEM/blob/master/Elementos_finitos_en_1D/fem1D_Robin.ipynb)<br>
     d. [Ejemplo térmico](https://github.com/rirastorza/Intro2FEM/blob/master/Elementos_finitos_en_1D/termico1D.ipynb)<br>
     e. [Ejemplo matemático](https://github.com/rirastorza/Intro2FEM/blob/master/Elementos_finitos_en_1D/matematico1D.ipynb)<br>
-3. Elementos Finitos en 2D para problemas estacionarios, estáticos
+3. Elementos Finitos en 2D para problemas estacionarios, estáticos <br>
+    a.[Teorema de la divergencia y fórmula de Green y ejemplo](https://github.com/rirastorza/Intro2FEM/blob/master/Elementos_finitos_en_2D/fem2D.ipynb)<br>
 4. Problemas dependientes del tiempo
 5. Resolución iterativa
 6. Mecánica de sólidos
