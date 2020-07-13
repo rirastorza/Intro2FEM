@@ -27,8 +27,8 @@ La idea es presentar diferentes conceptos utilizando [Jupyter notebooks](https:/
     e. [Ejemplo matemático](https://github.com/rirastorza/Intro2FEM/blob/master/Elementos_finitos_en_1D/matematico1D.ipynb)<br>
 3. Elementos Finitos en 2D para problemas estacionarios, estáticos <br>
     a.[Teorema de la divergencia y fórmula de Green y ejemplo](https://github.com/rirastorza/Intro2FEM/blob/master/Elementos_finitos_en_2D/fem2D.ipynb)<br>
-    b. Comentarios sobre la solución
-    c. Ejemplo de malla generada con Gmsh y problema térmico no lineal.
+    b. Comentarios sobre la solución <br>
+    c. Ejemplo de malla generada con Gmsh y problema térmico no lineal.<br>
 4. Problemas dependientes del tiempo
 5. Resolución iterativa
 6. Mecánica de sólidos
