@@ -30,7 +30,8 @@ La idea es presentar diferentes conceptos utilizando [Jupyter notebooks](https:/
     b. Comentarios sobre la solución <br>
     c. [Ejemplo de malla generada con Gmsh y problema térmico no lineal.](https://github.com/rirastorza/Intro2FEM/blob/master/Elementos_finitos_en_2D/termico2D.ipynb)<br>
     d. [Elasticidad lineal estática](https://github.com/rirastorza/Intro2FEM/blob/master/Elementos_finitos_en_2D/ElasticidadLineal2D.ipynb)<br>
-4. Problemas dependientes del tiempo
+4. Problemas dependientes del tiempo<br>
+    a.[Introducción y problema térmico](https://github.com/rirastorza/Intro2FEM/blob/master/Elementos_finitos_en_2D/fem2D.ipynb)<br>
 5. Resolución iterativa
 6. Mecánica de sólidos
 7. Ecuación de calor
