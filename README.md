@@ -32,7 +32,8 @@ La idea es presentar diferentes conceptos utilizando [Jupyter notebooks](https:/
     d. [Elasticidad lineal estática](https://github.com/rirastorza/Intro2FEM/blob/master/Elementos_finitos_en_2D/ElasticidadLineal2D.ipynb)<br>
 4. Problemas dependientes del tiempo<br>
     a. [Introducción y problema térmico](https://github.com/rirastorza/Intro2FEM/blob/master/Problemas_dependientes_del_tiempo/Introduccion_problema_termico.ipynb)<br>
-    b. [Elastodinámica](https://github.com/rirastorza/Intro2FEM/blob/master/Problemas_dependientes_del_tiempo/Problema_elastodinamico.ipynb) <br>
+    b. [Elastodinámica parte 1](https://github.com/rirastorza/Intro2FEM/blob/master/Problemas_dependientes_del_tiempo/Problema_elastodinamico.ipynb) <br>
+    c. [Elastodinámica parte 2](https://github.com/rirastorza/Intro2FEM/blob/master/Problemas_dependientes_del_tiempo/Problema_elastodinamico2.ipynb) <br>
 5. Resolución iterativa
 6. Mecánica de sólidos
 7. Ecuación de calor
