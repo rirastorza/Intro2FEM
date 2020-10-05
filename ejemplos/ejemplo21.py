@@ -29,6 +29,10 @@ cylinder = Circle(Point(0.2, 0.2), 0.05)
 domain = channel - cylinder
 mesh = generate_mesh(domain, 64)
 
+#plot (mesh)
+
+
+
 # Notar que uno es vectorial y el otro escalar
 V = VectorFunctionSpace(mesh, 'P', 2)
 Q = FunctionSpace(mesh, 'P', 1)
@@ -121,7 +125,16 @@ pdvfile_u = File("data/velocidad.pvd")
 # La progress bar!
 progress = Progress('Time-stepping', num_steps)
 
+import matplotlib.pyplot as plt
+
+
+plt.figure(1)
+plot(mesh)
+plt.show()
+
 t = 0
+
+
 for n in range(num_steps):
 
     # Update current time
@@ -141,9 +154,12 @@ for n in range(num_steps):
     b3 = assemble(L3)
     solve(A3, u_.vector(), b3, 'cg', 'sor')
 
-    # Plot solution
-    plot(u_, title='Velocity')
-    plot(p_, title='Pressure')
+    ## Plot solution
+    #plt.figure(2)
+    #plot(u_, title='Velocity')
+    #plt.figure(3)
+    #plot(p_, title='Pressure')
+    #plt.show()
 
     ## Save solution to file (XDMF/HDF5)
     #xdmffile_u.write(u_, t)
@@ -168,3 +184,5 @@ for n in range(num_steps):
 
 # Hold plot
 interactive()
+
+list_krylov_solver_preconditioners()
