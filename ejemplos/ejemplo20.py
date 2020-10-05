@@ -1,5 +1,5 @@
 """
-Ejemplo17.py modificado del tutorial de FEniCS:
+Ejemplo20.py modificado del tutorial de FEniCS:
 
 https://fenicsproject.org/pub/tutorial/html/._ftut1009.html
 
