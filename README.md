@@ -38,7 +38,7 @@ La idea es presentar diferentes conceptos utilizando [Jupyter notebooks](https:/
     e. [Dinámica de fluidos: Navier-Stokes parte 1](https://github.com/rirastorza/Intro2FEM/blob/master/Problemas_dependientes_del_tiempo/navier_stokes_parte1.ipynb) <br>
     f. [Dinámica de fluidos: Navier-Stokes parte 2](https://github.com/rirastorza/Intro2FEM/blob/master/Problemas_dependientes_del_tiempo/navier_stokes_parte2.ipynb) <br>
 5. Problemas acoplados<br>
-    a. [Problema débilmente acoplado](https://github.com/rirastorza/Intro2FEM/blob/master/Problemas_dependientes_del_tiempo/Introduccion_problema_termico.ipynb)<br>
+    a. [Problema mecánico-térmico débilmente acoplado](https://github.com/rirastorza/Intro2FEM/blob/master/Problemas%20acoplados/TermoelasticidadLinealParte1.ipynb)<br>
 
 6. Resolución iterativa
 
