@@ -37,11 +37,10 @@ La idea es presentar diferentes conceptos utilizando [Jupyter notebooks](https:/
     d. [Modos normales de vibración](https://github.com/rirastorza/Intro2FEM/blob/master/Problemas_dependientes_del_tiempo/AnalisisModosdeVibracion.ipynb) <br>
     e. [Dinámica de fluidos: Navier-Stokes parte 1](https://github.com/rirastorza/Intro2FEM/blob/master/Problemas_dependientes_del_tiempo/navier_stokes_parte1.ipynb) <br>
     f. [Dinámica de fluidos: Navier-Stokes parte 2](https://github.com/rirastorza/Intro2FEM/blob/master/Problemas_dependientes_del_tiempo/navier_stokes_parte2.ipynb) <br>
-5. Resolución iterativa
-6. Mecánica de sólidos
-7. Ecuación de calor
-8. Mecánica de fluidos
+5. Problemas acoplados<br>
+    a. [Problema débilmente acoplado](https://github.com/rirastorza/Intro2FEM/blob/master/Problemas_dependientes_del_tiempo/Introduccion_problema_termico.ipynb)<br>
 
+6. Resolución iterativa
 
 ---
 
