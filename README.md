@@ -18,7 +18,7 @@ La idea es presentar diferentes conceptos utilizando [Jupyter notebooks](https:/
 ---
 
 ## Temas
-1. [Polinomios constantes a trozo (1D)](https://nbviewer.jupyter.org/github/rirastorza/Intro2FEM/blob/master/Polinomios_constantes_atrozo/polinomios.ipynb)
+1. [Polinomios constantes a trozo (1D)]([https://nbviewer.jupyter.org/github/rirastorza/Intro2FEM/blob/master/Polinomios_constantes_atrozo/polinomios.ipynb](https://github.com/rirastorza/Intro2FEM/blob/master/Polinomios_constantes_atrozo/polinomios.ipynb))
 2. [Elementos Finitos en 1D](https://nbviewer.jupyter.org/github/rirastorza/Intro2FEM/blob/master/Elementos_finitos_en_1D/fem1D.ipynb)<br>
     a. [FEniCS en 1D](https://github.com/rirastorza/Intro2FEM/blob/master/Elementos_finitos_en_1D/fem1D_introFEniCS.ipynb)<br>
     b. [Ejemplo mecánico](https://github.com/rirastorza/Intro2FEM/blob/master/Elementos_finitos_en_1D/mecanica1D.ipynb)<br> 
