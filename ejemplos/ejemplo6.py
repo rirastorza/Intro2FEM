@@ -8,7 +8,7 @@ Ejemplo: Ecuacion de Poisson 1D pero resuelto con FEniCS
     
 """
 
-from __future__ import print_function
+#from __future__ import print_function
 from fenics import *
 # Defino la malla
 nx = 5 #numero de intervalos
@@ -38,11 +38,18 @@ f = Constant(1.0)
 a = dot(grad(u), grad(v))*dx #o inner
 L = f*v*dx
 
-# Resuelvo
+### Resuelvo
+##u = Function(V)
+##solve(a == L, u, bc)
+
+A,b = assemble_system(a,L,bc)
 u = Function(V)
-solve(a == L, u, bc)
+U = u.vector()
+solve(A,U,b)
 
 print('Tipo de variable:',type(u))
+print(A.array())
+
 
 import matplotlib.pyplot as plt
 

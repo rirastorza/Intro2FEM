@@ -9,7 +9,7 @@ from __future__ import print_function
 
 import os
 
-string = "gmsh -2 mallaejemplo11.geo"
+string = "gmsh -2 mallaejemplo11.geo -format msh2"
 os.system(string)
 
 string = "dolfin-convert mallaejemplo11.msh mallaejemplo11.xml"
@@ -25,7 +25,11 @@ tol = 1E-14
 #Constantes termicas
 k_0 = Constant(10.0)
 k_1 = Constant(400.0)
-alfa = 0.02
+
+alfa_0 = Constant(0.02)
+alfa_1 = Constant(0.04)
+
+#alfa = 0.02
 
 #Fuente, Temperatura variable
 Tb = 310.15 #En Kelvin
@@ -50,7 +54,22 @@ class K(UserExpression):
         else:
             values[0] = self.k_1
 
+
+class ALFA(UserExpression):
+    def __init__(self, subdomains, alfa_0, alfa_1, **kwargs):
+        super().__init__(**kwargs)
+        self.subdomains = subdomains
+        self.alfa_0 = alfa_0
+        self.alfa_1 = alfa_1        
+    def eval_cell(self, values, x, cell):
+        if self.subdomains[cell.index] == 2:
+            values[0] = self.alfa_0
+        else:
+            values[0] = self.alfa_1
+
+
 kappa = K(subdomains, k_0, k_1, degree=2)
+alffa = ALFA(subdomains, alfa_0, alfa_1, degree=2)
 
 ## Define variational problem
 u = Function(V)  # Note: not TrialFunction!
@@ -60,9 +79,11 @@ f = Constant(0.00)
 dx = dx(subdomain_data=subdomains)
 ds = ds(subdomain_data=boundary_markers)
 # Define variational problem
-F = kappa*(1+alfa*(u-Constant(310.15)))*dot(grad(u), grad(v))*dx-f*v*dx
+F = kappa*(1+alffa*(u-Constant(310.15)))*dot(grad(u), grad(v))*dx-f*v*dx
 
 solve(F == 0, u, bcs)
+
+
 
 #Cálculo del flujo
 ds = Measure('ds', domain=mesh, subdomain_data=boundary_markers)
@@ -79,6 +100,7 @@ vtkfile_u << u
 vtkfile_dominios = File('datos/dominios.pvd')
 vtkfile_dominios << subdomains
 
+
 #Comparación con teoría
 kb = 400.0
 ka = 10.0
@@ -89,4 +111,4 @@ r3 = 3.8e-3;
 Req = ln(r2/r1)/(2.0*np.pi*ka) +ln(r3/r2)/(2.0*np.pi*kb) #Resistencia por unidad de long.
 
 flujoTeorico = DeltaT/Req #flujo por unidad de longitud
-print('Flujo teorico:',flujoTeorico)
+print('Flujo teorico (cuidado! k constante con T):',flujoTeorico)

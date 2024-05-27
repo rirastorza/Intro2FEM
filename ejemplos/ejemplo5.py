@@ -12,13 +12,13 @@ from __future__ import print_function
 import numpy as np #importo numpy y lo denomino np
 
 #Puntos de x0 a xnx
-nx = 5 #numero de intervalos
+nx = 4 #numero de intervalos
 nodos = nx+1 #cantidad de nodos
 
 uh = np.zeros((nx+1,1))
 h = 1./(nx)
 Apre =(2./h)*np.eye(nx-1) #(n-1)*(n-1)
-#
+#print(Apre)
 
 
 rows, cols = np.indices((nx-1,nx-1))
@@ -27,14 +27,12 @@ col_vals = np.diag(cols, k=-1)
 z1 = np.zeros((nx-1,nx-1))
 z1[row_vals, col_vals]=-1./h
 
-
-
 row_vals = np.diag(rows, k=1)
 col_vals = np.diag(cols, k=1)
 z2 = np.zeros((nx-1,nx-1))
 z2[row_vals, col_vals]=-1./h
 
-
+#print(z2)
 
 A = Apre+z1+z2 #Matriz de rigidez
 
@@ -69,7 +67,7 @@ uh =np.append(jinew,[0])
 xu = np.linspace(0, 1.0, nx+1,endpoint = True)
 
 
-axs.plot(xu,uh,'rs',markersize=10)
+axs.plot(xu,uh,'-.rs',markersize=10)
 
 #Comparo con solucion exacta
 xe = np.arange(0.0,1.0,0.001)

@@ -10,7 +10,7 @@ https://comet-fenics.readthedocs.io/en/latest/demo/modal_analysis_dynamics/canti
 """
 from dolfin import *
 import numpy as np
-
+from matplotlib import pyplot as plt
 L, B, H = 20., 0.5, 1.
 
 Nx = 200
@@ -18,6 +18,8 @@ Ny = int(B/L*Nx)+1
 Nz = int(H/L*Nx)+1
 
 mesh = BoxMesh(Point(0.,0.,0.),Point(L,B,H), Nx, Ny, Nz)
+
+print('numero de elementos: ',Nx*Ny*Nz)
 
 #Prueba con Poisson nulo
 E, nu = Constant(1e5), Constant(0.)
@@ -54,6 +56,7 @@ m_form = rho*dot(v,z_)*dx
 M = PETScMatrix()
 assemble(m_form, tensor=M)
 
+print(size(M,dim = 0))
 
 eigensolver = SLEPcEigenSolver(K, M)
 eigensolver.parameters['problem_type'] = 'gen_hermitian'
@@ -62,7 +65,7 @@ eigensolver.parameters['spectral_shift'] = 0.
 
 
 N_eig = 6
-print("Computing {} first eigenvalues...".format(N_eig))
+print("Computando los {} primeros autovalores...".format(N_eig))
 eigensolver.solve(N_eig)
 
 # Exact solution computation
@@ -72,7 +75,13 @@ from math import cos, cosh
 falpha = lambda x: cos(x)*cosh(x)+1
 alpha = lambda n: root(falpha, (2*n+1)*pi/2.)['x'][0]
 
-file = File("data/desplazamiento.pvd")
+#file = File("data/desplazamiento.pvd")
+
+# Exportando los valores
+file_results = XDMFFile("analisis_modal.xdmf")
+file_results.parameters["flush_output"] = True
+file_results.parameters["functions_share_mesh"] = True
+
 
 # Extraction
 for i in range(N_eig):
@@ -99,6 +108,8 @@ for i in range(N_eig):
     eigenmode = Function(V,name="Eigenvector "+str(i))
     eigenmode.vector()[:] = rx
     
-    file << eigenmode
-    
-    
+    #file << eigenmode
+
+    #file_results.write(eigenmode)
+    plot(mesh)
+    plt.show()

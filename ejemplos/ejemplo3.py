@@ -54,15 +54,19 @@ plt.rc('font', family='serif')
 fig, axs = plt.subplots(1,1)
 axs.plot(xi,vi,'ro',markersize=10)
 axs.plot(x,v,'r')
-axs.plot(x,y,'b')
+axs.plot(x,y,'b',label = 'u(x)')
 axs.fill_between(x, y, v)
 axs.set_ylim(-1,5)
 axs.axhline(0, color='gray')
-axs.vlines(xi[0],vi[0],0,linestyles='dashed')
+#axs.vlines(xi[0],vi[0],0,linestyles='dashed')
 axs.annotate(r'$x_{0}$', xy=(xi[0]-0.02, -0.5),fontsize=16)
-axs.vlines(xi[-1],vi[-1],0,linestyles='dashed')
+#axs.vlines(xi[-1],vi[-1],0,linestyles='dashed')
 axs.annotate(r'$x_{n}$', xy=(xi[-1]-0.02, -0.5),fontsize=16)
 
+
+for i in range(len(vi)):
+    axs.plot(x,vi[i]*phi(x,xi,i),'-.')
+axs.legend()
 plt.show()
 
 

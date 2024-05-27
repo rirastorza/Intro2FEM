@@ -134,7 +134,6 @@ axs.annotate(r'$x_{0}$', xy=(xi[0]-0.02, -0.5),fontsize=16)
 axs.vlines(xi[-1],vi[-1],0,linestyles='dashed')
 axs.annotate(r'$x_{n}$', xy=(xi[-1]-0.02, -0.5),fontsize=16)
 
-plt.show()
 
 
 

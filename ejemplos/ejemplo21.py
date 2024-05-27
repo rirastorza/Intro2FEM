@@ -29,6 +29,8 @@ cylinder = Circle(Point(0.2, 0.2), 0.05)
 domain = channel - cylinder
 mesh = generate_mesh(domain, 64)
 
+#import matplotlib.pyplot as plt
+#plt.figure(1)
 #plot (mesh)
 
 
@@ -128,9 +130,9 @@ progress = Progress('Time-stepping', num_steps)
 import matplotlib.pyplot as plt
 
 
-plt.figure(1)
-plot(mesh)
-plt.show()
+#plt.figure(1)
+#plot(mesh)
+#plt.show()
 
 t = 0
 
@@ -154,7 +156,7 @@ for n in range(num_steps):
     b3 = assemble(L3)
     solve(A3, u_.vector(), b3, 'cg', 'sor')
 
-    ## Plot solution
+    # Plot solution
     #plt.figure(2)
     #plot(u_, title='Velocity')
     #plt.figure(3)
@@ -186,3 +188,4 @@ for n in range(num_steps):
 interactive()
 
 list_krylov_solver_preconditioners()
+

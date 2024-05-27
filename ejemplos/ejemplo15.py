@@ -12,7 +12,8 @@ from fenics import *
 import numpy as np
 
 T = 10.0            # tiempo final
-Nt = 40000     # número de pasos
+Nt = 400000
+# número de pasos
 dt = T / Nt # paso de tiempo
 
 nx = 20 #numero de intervalos
@@ -38,6 +39,7 @@ f_n = Constant(beta-2) #Al ser constante, vale lo mismo para todas las muestras
 F = u*v*dx + dt*dot(grad(u_n), grad(v))*dx - (u_n + dt*f_n)*v*dx
 a, L = lhs(F), rhs(F)
 
+print(a)
 
 u = Function(V)
 u_inter = []

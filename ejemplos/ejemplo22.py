@@ -14,7 +14,7 @@ https://comet-fenics.readthedocs.io
 
 from __future__ import print_function
 from dolfin import *
-from mshr import *
+#from mshr import *
 import matplotlib.pyplot as plt
 
 L, H = 5, 0.3
@@ -34,8 +34,8 @@ Delta_T = Function(VT, name="Incremento de la temperatura")
 aT = dot(grad(dT), grad(T_))*dx
 LT = Constant(0)*T_*dx
 
-bcT = [DirichletBC(VT, Constant(50.), abajo), 
-       DirichletBC(VT, Constant(0.), arriba),
+bcT = [DirichletBC(VT, Constant(0.), abajo), 
+       DirichletBC(VT, Constant(50.), arriba),
        DirichletBC(VT, Constant(0.), laterales)]
 solve(aT == LT, Delta_T, bcT)#Pone en Delta_T el valor despejado
 plt.figure()
@@ -50,14 +50,15 @@ mu = E/2/(1+nu)
 lmbda = E*nu/(1+nu)/(1-2*nu)
 alpha = Constant(1e-5)
 
-rho_g = 1e-3
+rho_g = 10e-3
 b = Constant((0, -rho_g))
 
-rho_g = 0.
-b = Constant((0, -rho_g))
+#rho_g = 0.
+#b = Constant((0, -rho_g))
 
 def eps(v):
-    return 0.5*(nabla_grad(v) + nabla_grad(v).T)
+    #return 0.5*(nabla_grad(v) + nabla_grad(v).T)
+    return sym(grad(v))
 
 def sigma(v, dT):
     return (lmbda*tr(eps(v))- alpha*(3*lmbda+2*mu)*dT)*Identity(2) + 2.0*mu*eps(v)
@@ -88,7 +89,12 @@ plt.show()
 vtkfile_u = File('datos/desplazamiento.pvd')
 vtkfile_u << u
 
+sigma1_proj = project(sigma(u, Delta_T), Vu)
+sigma_values  = sigma1_proj.vector().array()
 
+
+#vtkfile_s = File('datos/tension.pvd')
+#vtkfile_s << sigma_values
 ##Si se agrega el peso
 #rho_g = 2400*9.81e-6
 #f.assign(Constant((0., -rho_g))) 

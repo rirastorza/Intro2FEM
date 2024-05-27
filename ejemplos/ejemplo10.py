@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-Ejemplo 5: Ecuacion de Laplace. 
+Ejemplo 10: Ecuacion de Laplace. 
 
 """
 
 from fenics import *
 
 # Creo la malla y defino la funcion de espacio
-mesh = UnitSquareMesh(5, 5)
+mesh = UnitSquareMesh(20, 20)
 V = FunctionSpace(mesh, 'CG',1)#Continuous Lagrange elements
 
 # Defino las condiciones de borde

@@ -11,8 +11,8 @@ from fenics import *
 import numpy as np
 
 T = 10.0            # tiempo final
-num_steps = 40     # número de pasos
-dt = T / num_steps # paso de tiempo
+Nt = 40     # número de pasos
+dt = T / Nt # paso de tiempo
 nx = 20 #numero de intervalos
 minx, maxx = 0.0, 1.0 
 mesh = IntervalMesh(nx, minx, maxx)#malla en 1D 
@@ -41,7 +41,7 @@ u = Function(V)
 u_inter = []
 t = 0.0
 
-for nn in range(num_steps):
+for nn in range(Nt):
     # actualiza el tiempo
     t += dt
     u_D.t = t

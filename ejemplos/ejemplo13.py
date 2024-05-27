@@ -16,9 +16,9 @@ from __future__ import print_function
 from dolfin import *
 
 #En Sistema Internacional (SI)
-L = 2.5 #en metros en SI
+L = 1.5 #en metros en SI
 H = 0.1 #en metros en SI
-Nx = 50
+Nx = 20
 Ny = 10
 
 mesh = RectangleMesh(Point(0., 0.), Point(L, H), Nx, Ny, "crossed")#Malla estructurada
@@ -59,6 +59,7 @@ u = Function(V, name="Desplazamiento")
 solve(a == l, u, bc)
 
 plot(u, mode="Desplazamiento")
+
 
 # Validación
 # ------------------------------

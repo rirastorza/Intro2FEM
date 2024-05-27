@@ -9,7 +9,7 @@ from __future__ import print_function
 
 import os
 
-string = "gmsh -2 mallaejemplo11.geo"
+string = "gmsh -2 mallaejemplo11.geo -format msh2"
 os.system(string)
 
 string = "dolfin-convert mallaejemplo11.msh mallaejemplo11.xml"
