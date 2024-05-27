@@ -104,12 +104,12 @@ plt.show()
 #xdmffile_u = XDMFFile('datos/desplazamiento.xdmf')
 #xdmffile_u.write(u,0)
 
-## Fields can be exported in a suitable format for vizualisation using Paraview.
-## VTK-based extensions (.pvd,.vtu) are not suited for multiple fields and parallel
-## writing/reading. Prefered output format is now .xdmf::
+# Fields can be exported in a suitable format for vizualisation using Paraview.
+# VTK-based extensions (.pvd,.vtu) are not suited for multiple fields and parallel
+# writing/reading. Prefered output format is now .xdmf::
 
-#file_results = XDMFFile("datos/resultados_elasticidad.xdmf")
-#file_results.parameters["flush_output"] = True
-#file_results.parameters["functions_share_mesh"] = True
-#file_results.write(u, 0.)
-#file_results.write(sig, 0.)
+file_results = XDMFFile("datos/resultados_elasticidad.xdmf")
+file_results.parameters["flush_output"] = True
+file_results.parameters["functions_share_mesh"] = True
+file_results.write(u, 0.)
+file_results.write(sig, 0.)
