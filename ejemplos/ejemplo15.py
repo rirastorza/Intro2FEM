@@ -12,7 +12,7 @@ from fenics import *
 import numpy as np
 
 T = 10.0            # tiempo final
-Nt = 400000
+Nt = 40000
 # número de pasos
 dt = T / Nt # paso de tiempo
 
