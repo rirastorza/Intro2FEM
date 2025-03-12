@@ -47,6 +47,7 @@ La idea es presentar diferentes conceptos utilizando [Jupyter notebooks](https:/
 6. Resolución iterativa
 
 *Apéndice 1.* [Mallado y conversión de mallas de Gmsh a FEniCS](https://github.com/rirastorza/Intro2FEM/blob/master/Apendices/ejemplo_convierte_mallas2D.ipynb).
+*Apéndice 2.* [Submesh a Mesh e interpolando a Mesh con dolfinx](https://github.com/rirastorza/Intro2FEM/blob/master/Apendices/ejemplo.py).
 
 ---
 
