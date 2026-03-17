@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*
 """
 Ejemplo21.py modificado del tutorial de FEniCS:
 
@@ -12,7 +14,6 @@ Scheme (IPCS).
 
 """
 
-from __future__ import print_function
 from fenics import *
 from mshr import *
 import numpy as np

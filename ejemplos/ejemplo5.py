@@ -7,8 +7,6 @@ Ejemplo: Ecuacion de Poisson 1D, hecho a mano
     u(0) = 0 y u(1) = 0 en los bordes.
     
 """
-
-from __future__ import print_function
 import numpy as np #importo numpy y lo denomino np
 
 #Puntos de x0 a xnx

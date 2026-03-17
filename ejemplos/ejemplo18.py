@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 ejemplo18: Análisis Modal
@@ -56,7 +56,8 @@ m_form = rho*dot(v,z_)*dx
 M = PETScMatrix()
 assemble(m_form, tensor=M)
 
-print(size(M,dim = 0))
+# print(size(M,dim = 0))
+print(M.size(0))
 
 eigensolver = SLEPcEigenSolver(K, M)
 eigensolver.parameters['problem_type'] = 'gen_hermitian'

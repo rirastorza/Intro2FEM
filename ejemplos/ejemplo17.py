@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 ejemplo17: Pequeña deformación dinámica para una barra elástica (voladizo) empotrada en la pared. Ejemplo en 3D.

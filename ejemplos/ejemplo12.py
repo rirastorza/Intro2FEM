@@ -1,11 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Ejemplo 11: FEniCS geometría 2D: cilindros concéntricos
 Problema térmico no lineal
 
 """
-from __future__ import print_function
 
 import os
 

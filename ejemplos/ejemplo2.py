@@ -7,8 +7,6 @@ Jupyter notebook
     
 autor: Ramiro Irastorza
 """
-
-from __future__ import print_function
 import numpy as np #importo numpy y lo denomino np
 import matplotlib.pyplot as plt
 

@@ -8,7 +8,6 @@ Ejemplo: Ecuacion de Poisson 1D pero resuelto con FEniCS
     
 """
 
-from __future__ import print_function
 from fenics import *
 # Defino la malla
 nx = 10 #numero de intervalos

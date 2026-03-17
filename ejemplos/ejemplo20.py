@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*
 """
 Ejemplo20.py modificado del tutorial de FEniCS:
 
@@ -10,7 +12,6 @@ en 2D utilizando Incremental Pressure Correction Scheme (IPCS)
                                  div(u) = 0
 """
 
-from __future__ import print_function
 from fenics import *
 import numpy as np
 import matplotlib.pyplot as plt

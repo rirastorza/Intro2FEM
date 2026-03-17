@@ -7,9 +7,6 @@ Jupyter notebook
     
 autor: Ramiro Irastorza
 """
-
-
-from __future__ import print_function
 import numpy as np #importo numpy y lo denomino np
 import matplotlib.pyplot as plt
 from scipy.integrate import quad
@@ -134,6 +131,7 @@ axs.annotate(r'$x_{0}$', xy=(xi[0]-0.02, -0.5),fontsize=16)
 axs.vlines(xi[-1],vi[-1],0,linestyles='dashed')
 axs.annotate(r'$x_{n}$', xy=(xi[-1]-0.02, -0.5),fontsize=16)
 
+plt.show()
 
 
 

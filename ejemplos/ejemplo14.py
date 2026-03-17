@@ -5,8 +5,6 @@ Ejemplo 14: Problema dependiente del tiempo ejemplo Difusión del calor.
 Solución diseñada exacta.
     
 """
-
-from __future__ import print_function
 from fenics import *
 import numpy as np
 

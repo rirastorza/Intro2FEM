@@ -9,8 +9,6 @@ Ejemplo: Ecuacion de Poisson 1D pero resuelto con FEniCS
 Ejemplo 3.1 de libro: 
 https://books.google.com.ar/books/about/Principles_of_Heat_Transfer.html?id=1hVSQBNvr74C&redir_esc=y
 """
-
-from __future__ import print_function
 from fenics import *
 # Defino la malla
 nx = 10 #numero de intervalos

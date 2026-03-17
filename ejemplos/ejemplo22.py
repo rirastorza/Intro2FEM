@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # coding: utf-8
 
 """
@@ -12,7 +12,6 @@ https://comet-fenics.readthedocs.io
 
 """
 
-from __future__ import print_function
 from dolfin import *
 #from mshr import *
 import matplotlib.pyplot as plt
@@ -87,10 +86,10 @@ plt.colorbar(p)
 plt.show()
 
 vtkfile_u = File('datos/desplazamiento.pvd')
-vtkfile_u << u
-
-sigma1_proj = project(sigma(u, Delta_T), Vu)
-sigma_values  = sigma1_proj.vector().array()
+# vtkfile_u << u
+#
+# sigma1_proj = project(sigma(u, Delta_T), Vu)
+# sigma_values  = sigma1_proj.vector().array()
 
 
 #vtkfile_s = File('datos/tension.pvd')

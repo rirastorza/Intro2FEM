@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 ejemplo13: Pequeña deformación para una barra elástica (voladizo) empotrada en la pared. Ejemplo en 2D.
@@ -12,7 +12,6 @@ Resolución teórica de la barra:
 http://www.learnaboutstructures.com/Integration-of-the-Curvature-Diagram-to-find-Deflection
 """
 
-from __future__ import print_function
 from dolfin import *
 
 #En Sistema Internacional (SI)

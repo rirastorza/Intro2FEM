@@ -5,7 +5,6 @@ Ejemplo del libro pag. 37
 
 
 """
-from __future__ import print_function
 from fenics import *
 # Defino la malla
 nx = 25 #numero de intervalos
